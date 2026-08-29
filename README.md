@@ -37,11 +37,12 @@ scroll-driven fade-ups (`animation-timeline: view()`, degrades to one-shot fades
 
 | Route      | File           | Notes |
 |------------|----------------|-------|
-| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), divisions accordion carrying all four division pages' verbatim content, Jallosh band, **launch collage** (mixed-size draggable card row), **IG-post social wall**, values, CTA |
+| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), **division deck** (3D flip-card cover-flow, migrated from everest-final.vercel.app), Jallosh band, **launch collage** (mixed-size draggable card row), **IG-post social wall**, values, CTA |
 | `/films`   | `films.html`   | 202-poster library (155 handoff posters + 47 films from the V3 artwork delivery), sticky decade filter (All/2020s…60s) with live count, Nataks band |
 | `/about`   | `about.html`   | 64vh grayscale hero, journey + founder's note expanders, what-we-do, values, media room |
 | `/jallosh` | `jallosh.html` | Black hero with logo, statement box, on-every-screen cells, platform placeholders |
 | `/contact` | `contact.html` | mailto-composing form, division chips, 5 help topics, 14-item FAQ accordion |
+| `/production` `/syndication` `/digital` `/music` | division pages | The four division deep-dives (verbatim from the live V1 deployment), linked from the home deck's flip-backs |
 | `/fast`    | `fast.html`    | Standalone FAST channels page (V3 treatment): 8 channel cards, platform chips, YouTube cross-sell band, Carry-Everest-FAST CTA |
 
 All copy migrated verbatim from the previous deployment (everest-site-nu.vercel.app) via the
@@ -80,6 +81,7 @@ python3 serve.py   # http://localhost:4556 — clean URLs + no-store cache heade
 - `&open=N` — opens the Nth accordion item (home divisions / contact FAQ)
 - `&slide=N` — parks the hero reel on frame N (0-indexed) for screenshots
 - `&lscroll=N` — parks the launch collage at `scrollLeft: N` for screenshots
+- `&flip=N` — centres division card N and flips it (screenshots)
 - `&xtra` — expands every "Read the full …" block
 
 Headless Chrome gotcha: layout has a ~500px minimum width, so mobile-width screenshots
