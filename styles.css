@@ -217,9 +217,11 @@ footer{border-top:2px solid var(--ink);padding:24px}
 .gh-type--ink .gh-cta:hover .ar{transform:translateX(6px)}
 
 .gh-chrome{position:absolute;z-index:5;right:var(--gutter);bottom:clamp(38px,6.5vh,66px);display:flex;flex-direction:column;align-items:flex-end;gap:16px}
-.gh-cap{margin:0;display:flex;align-items:baseline;gap:12px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;text-shadow:0 1px 16px rgba(0,0,0,.7);transition:opacity .38s ease}
+/* slate chip — the frames underneath are unpredictable, so the label
+   carries its own ground rather than relying on a scrim */
+.gh-cap{margin:0;display:flex;align-items:baseline;gap:12px;background:var(--ink);padding:9px 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:#fff;transition:opacity .38s ease}
 .gh-cap.swap{opacity:0}
-.gh-cap .k{color:rgba(255,255,255,.62)}
+.gh-cap .k{color:rgba(255,255,255,.55)}
 .gh-cap .y{color:var(--blue-lt)}
 .gh-arrows{display:flex;gap:8px}
 .gh-arrow{width:46px;height:42px;display:flex;align-items:center;justify-content:center;cursor:pointer;
@@ -262,7 +264,7 @@ footer{border-top:2px solid var(--ink);padding:24px}
   .nav--hero .wordmark{color:#fff}
   /* caption moves up onto the open half of the frame, arrows stay on the frost */
   .gh-chrome{display:contents}
-  .gh-cap{position:absolute;z-index:5;right:var(--gutter);bottom:calc(60% + 16px)}
+  .gh-cap{position:absolute;z-index:5;right:0;bottom:calc(60% + 14px)}
   .gh-arrows{position:absolute;z-index:5;right:var(--gutter);bottom:26px}
   .gh-arrow{border-color:var(--ink);background:rgba(255,255,255,.42);color:var(--ink)}
   .gh-arrow:hover{background:var(--ink);color:#fff}
