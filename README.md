@@ -1,8 +1,8 @@
 # Everest Final V2
 
-Everest Entertainment — editorial cinema-poster redesign, **V2**. Forked from
-`~/Downloads/everest-final-version` (live at everest-final.vercel.app); everything below the
-homepage hero is unchanged. Originally built from the Claude-Code design handoff in
+Everest Entertainment — editorial cinema-poster redesign, **V2**.
+**Live at [everest-final-v2.vercel.app](https://everest-final-v2.vercel.app)** · GitHub `axy-full/everest-final-v2`.
+Forked from `~/Downloads/everest-final-version` (live at everest-final.vercel.app). Originally built from the Claude-Code design handoff in
 `design_handoff_everest_site/` (5 `.dc.html` reference files + spec README).
 
 ## What changed in V2 — the glass hero
