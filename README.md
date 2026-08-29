@@ -37,7 +37,7 @@ scroll-driven fade-ups (`animation-timeline: view()`, degrades to one-shot fades
 
 | Route      | File           | Notes |
 |------------|----------------|-------|
-| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), divisions accordion carrying all four division pages' verbatim content, Jallosh band, slate, watch grid, values, CTA |
+| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), divisions accordion carrying all four division pages' verbatim content, Jallosh band, **launch collage** (mixed-size draggable card row), values, CTA |
 | `/films`   | `films.html`   | 202-poster library (155 handoff posters + 47 films from the V3 artwork delivery), sticky decade filter (All/2020s…60s) with live count, Nataks band |
 | `/about`   | `about.html`   | 64vh grayscale hero, journey + founder's note expanders, what-we-do, values, media room |
 | `/jallosh` | `jallosh.html` | Black hero with logo, statement box, on-every-screen cells, platform placeholders |
@@ -79,6 +79,7 @@ python3 serve.py   # http://localhost:4556 — clean URLs + no-store cache heade
   (real scroll paints white in headless screenshots); outside capture mode does a normal scroll
 - `&open=N` — opens the Nth accordion item (home divisions / contact FAQ)
 - `&slide=N` — parks the hero reel on frame N (0-indexed) for screenshots
+- `&lscroll=N` — parks the launch collage at `scrollLeft: N` for screenshots
 - `&xtra` — expands every "Read the full …" block
 
 Headless Chrome gotcha: layout has a ~500px minimum width, so mobile-width screenshots

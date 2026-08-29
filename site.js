@@ -23,6 +23,14 @@
     var items = document.querySelectorAll('[data-acc-item]');
     if (items[+openM[1]]) items[+openM[1]].classList.add('open');
   }
+  /* &lscroll=N parks the launch strip at scrollLeft N (screenshots) */
+  var lsM = location.search.match(/[?&]lscroll=(\d+)/);
+  if (lsM) {
+    window.addEventListener('load', function () {
+      var ls = document.getElementById('launch-strip');
+      if (ls) ls.scrollTo({ left: +lsM[1], behavior: 'auto' });
+    });
+  }
   /* &xtra opens every expander block */
   if (/[?&]xtra\b/.test(location.search)) {
     document.querySelectorAll('.xtra').forEach(function (x) { x.classList.add('open'); });
@@ -150,10 +158,44 @@
     if (!strip) return;
     var dir = btn.hasAttribute('data-strip-prev') ? -1 : 1;
     btn.addEventListener('click', function () {
-      var cell = strip.firstElementChild;
-      var w = cell ? cell.getBoundingClientRect().width : 280;
-      strip.scrollBy({ left: dir * w * 2, behavior: reduced ? 'auto' : 'smooth' });
+      /* mixed-size collage pages by viewport; uniform strips page by cell */
+      var amt;
+      if (strip.classList.contains('lstrip')) {
+        amt = Math.max(strip.clientWidth * 0.75, 260);
+      } else {
+        var cell = strip.firstElementChild;
+        amt = (cell ? cell.getBoundingClientRect().width : 280) * 2;
+      }
+      strip.scrollBy({ left: dir * amt, behavior: reduced ? 'auto' : 'smooth' });
     });
+  });
+
+  /* Mouse drag-to-scroll for [data-drag-scroll] rows (touch already pans natively).
+     A drag past 6px suppresses the click so cards don't open mid-swipe. */
+  document.querySelectorAll('[data-drag-scroll]').forEach(function (strip) {
+    var down = false, moved = false, sx = 0, sl = 0;
+    strip.addEventListener('pointerdown', function (e) {
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; sx = e.clientX; sl = strip.scrollLeft;
+      try { strip.setPointerCapture(e.pointerId); } catch (err) { /* released mid-gesture */ }
+    });
+    strip.addEventListener('pointermove', function (e) {
+      if (!down) return;
+      var dx = e.clientX - sx;
+      if (!moved && Math.abs(dx) > 6) { moved = true; strip.classList.add('dragging'); }
+      if (moved) strip.scrollLeft = sl - dx;
+    });
+    function release() {
+      if (!down) return;
+      down = false;
+      strip.classList.remove('dragging');
+      setTimeout(function () { moved = false; }, 0);
+    }
+    strip.addEventListener('pointerup', release);
+    strip.addEventListener('pointercancel', release);
+    strip.addEventListener('click', function (e) {
+      if (moved) { e.preventDefault(); e.stopPropagation(); }
+    }, true);
   });
 
   /* Social wall — load more */

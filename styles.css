@@ -292,7 +292,9 @@ footer{border-top:2px solid var(--ink);padding:24px}
 .intro .row{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap;justify-content:center;align-items:center}
 
 /* Section scaffold */
-.sec{padding:0 24px 110px}
+/* overflow-x:clip so the launch strip's right bleed can't widen the page
+   on classic-scrollbar platforms (clip ≠ auto: no new scroll container) */
+.sec{padding:0 24px 110px;overflow-x:clip}
 .sec-head{padding-top:46px;text-align:center}
 .sec-head .dek{margin:22px auto 0;max-width:540px}
 .sec-head--row{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap;text-align:left}
@@ -413,13 +415,33 @@ a.wall-card.wall-hidden{display:none}
 .band-body .btn--white{margin-top:32px}
 
 /* Watch grid */
-.watch-grid{margin-top:52px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
-a.watch{color:var(--ink);display:block}
-a.watch:hover{opacity:1}
-.watch img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--ph);outline:1px solid var(--ink);outline-offset:-1px;filter:grayscale(1);transition:filter .4s ease;display:block}
-a.watch:hover img{filter:grayscale(0)}
-.watch .cat{margin-top:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue)}
-.watch .t{font-size:13.5px;font-weight:600;margin-top:3px}
+/* Launch collage — one draggable row of mixed-size cards.
+   Stagger comes from per-slot margin-top; card kind sets width + ratio. */
+.lstrip{margin-top:52px;margin-right:calc(50% - 50vw);display:flex;align-items:flex-start;gap:clamp(18px,2.2vw,30px);overflow-x:auto;padding:2px 24px 16px 2px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab}
+.lstrip::-webkit-scrollbar{display:none}
+.lstrip.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none;-webkit-user-select:none}
+.lstrip.dragging .lcard{pointer-events:none}
+.lcard{flex:0 0 auto;scroll-snap-align:start;color:var(--ink);display:block}
+.lcard:hover{opacity:1}
+.lcard--lg{width:clamp(320px,36vw,540px)}
+.lcard--m{width:clamp(250px,27vw,390px)}
+.lcard--s{width:clamp(210px,22vw,320px)}
+.lcard--p{width:clamp(190px,20vw,280px)}
+.lstrip>*:nth-child(2){margin-top:72px}
+.lstrip>*:nth-child(3){margin-top:26px}
+.lstrip>*:nth-child(4){margin-top:98px}
+.lstrip>*:nth-child(6){margin-top:64px}
+.lstrip>*:nth-child(7){margin-top:30px}
+.lstrip>*:nth-child(8){margin-top:84px}
+.lcard .ph{position:relative}
+.lcard img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--ph);outline:1px solid var(--ink);outline-offset:-1px;filter:grayscale(1);transition:filter .4s ease;display:block;-webkit-user-drag:none}
+.lcard--p img{aspect-ratio:3/4}
+.lcard:hover img{filter:grayscale(0)}
+.lcard .chip{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;white-space:nowrap}
+.lcard .t{font-size:13.5px;font-weight:600;margin-top:10px}
+.lstrip-ctrl{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-top:6px}
+.lstrip-ctrl .hint{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.lstrip-ctrl .btns{display:flex;gap:8px}
 
 /* Slate grid */
 .slate-grid{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px}
@@ -569,7 +591,7 @@ a.slate-card:hover{opacity:1}
    imagery renders in colour; hover fills are inert anyway
    ============================================================ */
 @media (hover:none){
-  .poster,.watch img,.film .poster,.lang-cell .logo,.fast-cards .mini-card .logo{filter:none}
+  .poster,.lcard img,.film .poster,.lang-cell .logo,.fast-cards .mini-card .logo{filter:none}
   .film:hover .poster{transform:none}
 }
 
@@ -580,7 +602,19 @@ a.slate-card:hover{opacity:1}
   .page-head{padding-top:120px}
   .band{padding:80px 24px}
   .sec{padding-bottom:80px}
-  .watch-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .lstrip{gap:14px;margin-top:40px}
+  .lcard--lg{width:266px}
+  .lcard--m{width:224px}
+  .lcard--s{width:196px}
+  .lcard--p{width:168px}
+  .lstrip>*:nth-child(2){margin-top:40px}
+  .lstrip>*:nth-child(3){margin-top:14px}
+  .lstrip>*:nth-child(4){margin-top:54px}
+  .lstrip>*:nth-child(6){margin-top:36px}
+  .lstrip>*:nth-child(7){margin-top:16px}
+  .lstrip>*:nth-child(8){margin-top:46px}
+  .lstrip-ctrl{justify-content:flex-end}
+  .lstrip-ctrl .hint{display:none}
   .contact-cols{gap:56px}
   .founder-cols{gap:48px}
   .div-cols{gap:36px}

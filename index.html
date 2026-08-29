@@ -412,15 +412,23 @@
       <h2 class="h2">New launches &amp; the catalogue.</h2>
       <p class="dek" style="max-width:600px">Recent uploads and hand-picked highlights from Everest's channels — songs, trailers, dramas and full films.</p>
     </div>
-    <div class="watch-grid">
-      <a href="https://www.youtube.com/watch?v=N2hEFyXAe0A" target="_blank" rel="noopener" class="watch"><img src="assets/yt/N2hEFyXAe0A.jpg" alt="New launch on YouTube" loading="lazy"><div class="cat">New launch</div><div class="t">Watch on YouTube →</div></a>
-      <a href="https://www.youtube.com/watch?v=fywuFgnYYfM" target="_blank" rel="noopener" class="watch"><img src="assets/yt/fywuFgnYYfM.jpg" alt="New launch on YouTube" loading="lazy"><div class="cat">New launch</div><div class="t">Watch on YouTube →</div></a>
-      <a href="https://www.youtube.com/watch?v=Hf4whljD2_0" target="_blank" rel="noopener" class="watch"><img src="assets/yt/Hf4whljD2_0.jpg" alt="Aamhi Doghi Final Take" loading="lazy"><div class="cat">New launch</div><div class="t">Aamhi Doghi — Final Take →</div></a>
-      <a href="https://www.youtube.com/watch?v=DRCpiuuuQnw" target="_blank" rel="noopener" class="watch"><img src="assets/yt/DRCpiuuuQnw.jpg" alt="Baghtos Kay Mujara Kar — official trailer" loading="lazy"><div class="cat">Movies on demand</div><div class="t">Baghtos Kay Mujara Kar →</div></a>
-      <a href="https://www.youtube.com/watch?v=6Dxqa-uoQEI" target="_blank" rel="noopener" class="watch"><img src="assets/yt/6Dxqa-uoQEI.jpg" alt="Awaj Wadhav DJ — Poshter Girl" loading="lazy"><div class="cat">Most popular · song</div><div class="t">Awaj Wadhav DJ — Poshter Girl →</div></a>
-      <a href="https://www.youtube.com/watch?v=8gM0heG2KLY" target="_blank" rel="noopener" class="watch"><img src="assets/yt/8gM0heG2KLY.jpg" alt="Jadoo Teri Nazar — Marathi natak" loading="lazy"><div class="cat">Drama · natak</div><div class="t">Jadoo Teri Nazar →</div></a>
-      <a href="https://www.youtube.com/watch?v=-De2u84Efqw" target="_blank" rel="noopener" class="watch"><img src="assets/yt/-De2u84Efqw.jpg" alt="Best Romantic Marathi Love Songs" loading="lazy"><div class="cat">Featured</div><div class="t">Best Romantic Marathi Love Songs →</div></a>
-      <a href="https://www.youtube.com/watch?v=fe6wB1UqAgQ" target="_blank" rel="noopener" class="watch"><img src="assets/yt/fe6wB1UqAgQ.jpg" alt="Me Shivaji Raje Bhosle Boltoy Trailer" loading="lazy"><div class="cat">Featured</div><div class="t">Me Shivaji Raje Bhosle Boltoy — Trailer →</div></a>
+    <!-- Launch collage — mixed-size cards in one draggable row -->
+    <div class="lstrip fade" id="launch-strip" data-drag-scroll aria-label="New launches and catalogue picks — scrolls sideways">
+      <a href="https://www.youtube.com/watch?v=N2hEFyXAe0A" target="_blank" rel="noopener" class="lcard lcard--lg"><div class="ph"><img src="assets/yt/N2hEFyXAe0A.jpg" alt="New launch on YouTube" loading="lazy"><span class="chip">New launch</span></div><div class="t">Watch on YouTube →</div></a>
+      <a href="https://www.youtube.com/watch?v=Hf4whljD2_0" target="_blank" rel="noopener" class="lcard lcard--p"><div class="ph"><img src="assets/art/aamhi-doghi-card.jpg" alt="Aamhi Doghi Final Take" loading="lazy"><span class="chip">New launch</span></div><div class="t">Aamhi Doghi — Final Take →</div></a>
+      <a href="https://www.youtube.com/watch?v=fywuFgnYYfM" target="_blank" rel="noopener" class="lcard lcard--m"><div class="ph"><img src="assets/yt/fywuFgnYYfM.jpg" alt="New launch on YouTube" loading="lazy"><span class="chip">New launch</span></div><div class="t">Watch on YouTube →</div></a>
+      <a href="https://www.youtube.com/watch?v=DRCpiuuuQnw" target="_blank" rel="noopener" class="lcard lcard--p"><div class="ph"><img src="assets/art/baghtos-kay-mujara-kar-card.jpg" alt="Baghtos Kay Mujara Kar — official trailer" loading="lazy"><span class="chip">Movies on demand</span></div><div class="t">Baghtos Kay Mujara Kar →</div></a>
+      <a href="https://www.youtube.com/watch?v=6Dxqa-uoQEI" target="_blank" rel="noopener" class="lcard lcard--m"><div class="ph"><img src="assets/yt/6Dxqa-uoQEI.jpg" alt="Awaj Wadhav DJ — Poshter Girl" loading="lazy"><span class="chip">Most popular · song</span></div><div class="t">Awaj Wadhav DJ — Poshter Girl →</div></a>
+      <a href="https://www.youtube.com/watch?v=8gM0heG2KLY" target="_blank" rel="noopener" class="lcard lcard--s"><div class="ph"><img src="assets/yt/8gM0heG2KLY.jpg" alt="Jadoo Teri Nazar — Marathi natak" loading="lazy"><span class="chip">Drama · natak</span></div><div class="t">Jadoo Teri Nazar →</div></a>
+      <a href="https://www.youtube.com/watch?v=-De2u84Efqw" target="_blank" rel="noopener" class="lcard lcard--m"><div class="ph"><img src="assets/yt/-De2u84Efqw.jpg" alt="Best Romantic Marathi Love Songs" loading="lazy"><span class="chip">Featured</span></div><div class="t">Best Romantic Marathi Love Songs →</div></a>
+      <a href="https://www.youtube.com/watch?v=fe6wB1UqAgQ" target="_blank" rel="noopener" class="lcard lcard--p"><div class="ph"><img src="assets/art/mee-shivajiraje-bhosale-boltoy-card.jpg" alt="Me Shivaji Raje Bhosle Boltoy Trailer" loading="lazy"><span class="chip">Featured</span></div><div class="t">Me Shivaji Raje Bhosle Boltoy — Trailer →</div></a>
+    </div>
+    <div class="lstrip-ctrl">
+      <span class="hint">( Drag sideways, or use the arrows )</span>
+      <div class="btns">
+        <button type="button" class="reel-btn" data-strip-prev="launch-strip" aria-label="Scroll launches left">←</button>
+        <button type="button" class="reel-btn" data-strip-next="launch-strip" aria-label="Scroll launches right">→</button>
+      </div>
     </div>
     <div id="network" style="margin-top:64px;text-align:center;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);scroll-margin-top:24px">( The network · 13 channels · four languages )</div>
     <div class="lang-strip strip-scroll fade" id="net-strip">
