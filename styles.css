@@ -387,18 +387,30 @@ a.lang-cell:hover .logo{filter:grayscale(0)}
 .chip-row{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1px solid var(--ink);padding:7px 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;text-transform:uppercase}
 
-/* Social wall — dark masonry of watch-now cards */
-.wall-masonry{margin-top:52px;columns:5;column-gap:14px}
-@media(max-width:1180px){.wall-masonry{columns:4}}
-@media(max-width:920px){.wall-masonry{columns:3}}
-@media(max-width:640px){.wall-masonry{columns:2}}
-a.wall-card{display:block;background:#fff;color:var(--ink);margin:0 0 14px;break-inside:avoid}
+/* Social wall — every card dressed as an Instagram post: the profile
+   row carries the work's name + descriptor, then media, action icons,
+   and a watch-now caption. Card stays sharp; only the avatar is round. */
+.wall-masonry{margin-top:52px;columns:4;column-gap:16px}
+@media(max-width:1180px){.wall-masonry{columns:3}}
+@media(max-width:920px){.wall-masonry{columns:2}}
+@media(max-width:640px){.wall-masonry{columns:2;column-gap:12px}}
+a.wall-card{display:block;background:#fff;color:var(--ink);margin:0 0 16px;break-inside:avoid}
 a.wall-card:hover{opacity:1}
-.wall-card img{width:100%;height:auto;display:block;background:var(--ph)}
-.wall-card .wn{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 14px;font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
-.wall-card .wn .ar{transition:transform .25s ease}
-a.wall-card:hover .wn{color:var(--blue)}
-a.wall-card:hover .wn .ar{transform:translateX(4px)}
+.wc-head{display:flex;align-items:center;gap:10px;padding:10px 12px}
+.wc-av{width:30px;height:30px;border-radius:50%;object-fit:cover;flex:0 0 auto;background:var(--quiet);outline:1px solid rgba(10,10,10,.12)}
+.wc-id{flex:1;min-width:0}
+.wc-name{display:block;font-size:13px;font-weight:700;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wc-sub{display:block;margin-top:1px;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--sec);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wc-dots{flex:0 0 auto;font-weight:700;letter-spacing:.1em;color:var(--sec)}
+.wc-media{width:100%;height:auto;display:block;background:var(--ph)}
+.wc-acts{display:flex;align-items:center;gap:14px;padding:11px 12px 0}
+.wc-acts .ic{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wc-acts .ic-save{margin-left:auto}
+a.wall-card:hover .ic-heart{color:var(--blue);fill:var(--blue)}
+.wc-cap{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px 13px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:500}
+.wc-cap .ar{transition:transform .25s ease}
+a.wall-card:hover .wc-cap{color:var(--blue)}
+a.wall-card:hover .wc-cap .ar{transform:translateX(4px)}
 a.wall-card.wall-hidden{display:none}
 .wall-masonry.expanded a.wall-card.wall-hidden{display:block}
 .wall-more{display:inline-flex;align-items:center;gap:12px;background:transparent;color:#fff;border:1px solid #fff;padding:15px 28px;font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
@@ -615,6 +627,13 @@ a.slate-card:hover{opacity:1}
   .lstrip>*:nth-child(8){margin-top:46px}
   .lstrip-ctrl{justify-content:flex-end}
   .lstrip-ctrl .hint{display:none}
+  .wc-head{gap:8px;padding:8px 10px}
+  .wc-av{width:24px;height:24px}
+  .wc-name{font-size:11.5px}
+  .wc-sub{font-size:8.5px}
+  .wc-acts{gap:11px;padding:9px 10px 0}
+  .wc-acts .ic{width:18px;height:18px}
+  .wc-cap{font-size:10px;padding:8px 10px 11px}
   .contact-cols{gap:56px}
   .founder-cols{gap:48px}
   .div-cols{gap:36px}
