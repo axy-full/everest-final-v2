@@ -37,7 +37,7 @@ scroll-driven fade-ups (`animation-timeline: view()`, degrades to one-shot fades
 
 | Route      | File           | Notes |
 |------------|----------------|-------|
-| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), divisions accordion carrying all four division pages' verbatim content, Jallosh band, **launch collage** (mixed-size draggable card row), values, CTA |
+| `/`        | `index.html`   | **Glass hero** (9-frame work reel behind a frosted panel), divisions accordion carrying all four division pages' verbatim content, Jallosh band, **launch collage** (mixed-size draggable card row), **IG-post social wall**, values, CTA |
 | `/films`   | `films.html`   | 202-poster library (155 handoff posters + 47 films from the V3 artwork delivery), sticky decade filter (All/2020s…60s) with live count, Nataks band |
 | `/about`   | `about.html`   | 64vh grayscale hero, journey + founder's note expanders, what-we-do, values, media room |
 | `/jallosh` | `jallosh.html` | Black hero with logo, statement box, on-every-screen cells, platform placeholders |
